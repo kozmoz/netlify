@@ -9,7 +9,7 @@ module.exports = function (grunt) {
             },
             build: {
                 src: 'src/<%= pkg.name %>.js',
-                dest: 'build/<%= pkg.name %>.min.js'
+                dest: 'dist/<%= pkg.name %>.min.js'
             }
         },
 
@@ -17,7 +17,7 @@ module.exports = function (grunt) {
             main: {
                 files: [
                     // includes files within path
-                    {expand: true, cwd: 'src/', src: ['**'], dest: 'build/'},
+                    {expand: true, cwd: 'src/', src: ['**'], dest: 'dist/'},
                 ],
             },
         },
@@ -30,6 +30,7 @@ module.exports = function (grunt) {
 
     // Default task(s).
     grunt.registerTask('default', ['uglify', 'copy']);
+    grunt.registerTask('build', 'default');
 
 };
 
